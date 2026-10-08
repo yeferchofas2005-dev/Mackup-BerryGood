@@ -3,43 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f8f2fb">
-    <title>BerryGood | Proyectos</title>
+    <meta name="theme-color" content="#f5f7f2">
+    <meta name="description" content="BerryGood combina marketing, desarrollo de software e inteligencia artificial para impulsar organizaciones.">
+    <title>BerryGood | Tecnología que impulsa</title>
     <link rel="stylesheet" href="../../css/berryGoodcss/styleBerryGood.css">
+    <script src="../../js/berryGoodjs/mainBerryGood.js" defer></script>
 </head>
 <body>
-    <main class="portal">
-        <div class="portal-content">
-            <header class="portal-header">
-                <p class="brand-name">Berry<span>Good</span></p>
-                <span class="brand-mark" aria-hidden="true">B</span>
-            </header>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <a class="brand" href="#inicio" aria-label="BerryGood, inicio">
+            <img class="brand-logo" src="logo_berryGood.jpg" alt="">
+            <span>Berry<span class="brand-accent">Good</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Navegación principal">
+            <a href="#inicio" aria-current="location">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#empresa">Empresa</a>
+            <a class="nav-contact" href="#servicios">Explorar soluciones <span aria-hidden="true">↗</span></a>
+        </nav>
+    </header>
 
-            <section class="project-section" aria-labelledby="page-title">
-                <p class="section-label">NUESTROS PROYECTOS</p>
-                <h1 id="page-title">¿A dónde vamos?</h1>
+    <main id="contenido">
+        <section class="hero" id="inicio" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> INGENIERÍA CON PROPÓSITO</p>
+                <h1 id="hero-title">Hacemos que la tecnología <span>impulse tu negocio.</span></h1>
+                <p class="hero-description">Estrategia de marketing, software e inteligencia artificial conectados para resolver retos reales de tu organización.</p>
+                <a class="primary-link" href="#servicios">Encuentra tu solución <span aria-hidden="true">↓</span></a>
+                <p class="hero-note">Marketing · Software · Inteligencia artificial</p>
+            </div>
+            <div class="hero-visual" aria-label="Identidad de BerryGood">
+                <span class="visual-orbit orbit-one" aria-hidden="true"></span>
+                <span class="visual-orbit orbit-two" aria-hidden="true"></span>
+                <img class="title-logo" src="titulo_berryGood.jpg" alt="BerryGood">
+                <span class="visual-caption"><span aria-hidden="true">✳</span> Ideas que crecen con tecnología</span>
+            </div>
+            <a class="scroll-cue" href="#servicios" aria-label="Desplazarse a nuestros servicios"><span aria-hidden="true">↓</span></a>
+        </section>
 
-                <nav class="project-links" aria-label="Secciones de BerryGood">
-                    <a class="project-link banana" href="../bananoMarketinghtml/indexBananoMarketing.html">
-                        <span class="project-index">01</span>
-                        <span class="project-name">Banano Marketing</span>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </a>
-                    <a class="project-link lemon" href="../lemon.iahtml/indexLemon.ia.html">
-                        <span class="project-index">02</span>
-                        <span class="project-name">Lemon.IA</span>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </a>
-                    <a class="project-link orange" href="../orangeDevhtml/indexOrangeDev.html">
-                        <span class="project-index">03</span>
-                        <span class="project-name">OrangeDev</span>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </a>
-                </nav>
-            </section>
+        <section class="services section-wrap" id="servicios" aria-labelledby="services-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">LO QUE HACEMOS</p>
+                    <h2 id="services-title">Tres áreas. <span>Un mismo impulso.</span></h2>
+                </div>
+                <p class="section-intro">Combinamos creatividad e ingeniería para resolver retos de negocio desde distintos ángulos.</p>
+            </div>
 
-            <footer class="portal-footer">BerryGood <span aria-hidden="true">·</span> 2026</footer>
-        </div>
+            <div class="service-grid">
+                <a class="service-card banana" href="../bananoMarketinghtml/indexBananoMarketing.html">
+                    <span class="service-top"><span class="service-number">01 / CRECIMIENTO</span><span class="service-arrow" aria-hidden="true">↗</span></span>
+                    <span class="service-icon" aria-hidden="true">↗</span>
+                    <span class="service-name">Banano<span>Marketing</span></span>
+                    <span class="service-description">Estrategia digital, gestión de redes y herramientas para encontrar nuevas oportunidades comerciales.</span>
+                    <span class="service-bottom">Marketing con ingeniería <span aria-hidden="true">→</span></span>
+                </a>
+                <a class="service-card lemon" href="../lemon.iahtml/indexLemon.ia.html">
+                    <span class="service-top"><span class="service-number">02 / AUTOMATIZACIÓN</span><span class="service-arrow" aria-hidden="true">↗</span></span>
+                    <span class="service-icon" aria-hidden="true">✳</span>
+                    <span class="service-name">Lemon<span>.IA</span></span>
+                    <span class="service-description">Agentes y asistentes de inteligencia artificial que ayudan a automatizar procesos de trabajo.</span>
+                    <span class="service-bottom">Inteligencia que simplifica <span aria-hidden="true">→</span></span>
+                </a>
+                <a class="service-card orange" href="../orangeDevhtml/indexOrangeDev.html">
+                    <span class="service-top"><span class="service-number">03 / DESARROLLO</span><span class="service-arrow" aria-hidden="true">↗</span></span>
+                    <span class="service-icon" aria-hidden="true">&lt;/&gt;</span>
+                    <span class="service-name">Orange<span>Dev</span></span>
+                    <span class="service-description">Software a la medida y soluciones existentes para acompañar las necesidades de cada organización.</span>
+                    <span class="service-bottom">Software hecho para avanzar <span aria-hidden="true">→</span></span>
+                </a>
+            </div>
+        </section>
+
+        <section class="approach section-wrap" id="enfoque" aria-labelledby="approach-title">
+            <div class="approach-intro">
+                <p class="eyebrow">DE LA IDEA A LA SOLUCIÓN</p>
+                <h2 id="approach-title">Primero entendemos el reto. <span>Luego, la tecnología adecuada.</span></h2>
+                <p>No empezamos por una herramienta. Conocemos el contexto de tu organización y conectamos la estrategia, el software o la inteligencia artificial que responde a lo que necesitas.</p>
+                <a class="approach-link" href="#servicios">Explora nuestras áreas <span aria-hidden="true">↗</span></a>
+            </div>
+            <ol class="approach-steps">
+                <li class="approach-step">
+                    <span class="step-number">01</span>
+                    <div>
+                        <h3>Escuchamos</h3>
+                        <p>Entendemos el contexto y lo que tu organización necesita resolver.</p>
+                    </div>
+                </li>
+                <li class="approach-step">
+                    <span class="step-number">02</span>
+                    <div>
+                        <h3>Diseñamos</h3>
+                        <p>Definimos una dirección clara con el área de servicio adecuada.</p>
+                    </div>
+                </li>
+                <li class="approach-step">
+                    <span class="step-number">03</span>
+                    <div>
+                        <h3>Construimos</h3>
+                        <p>Convertimos esa dirección en una solución pensada para avanzar.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <section class="about" id="empresa" aria-labelledby="about-title">
+            <div class="about-inner">
+                <p class="eyebrow">SOMOS BERRYGOOD</p>
+                <h2 id="about-title">Ingeniería, software e ideas nuevas, <span>en un solo equipo.</span></h2>
+                <p>Fundada por tres ingenieros, BerryGood reúne experiencia e interés por la tecnología y la inteligencia artificial para ofrecer servicios a otras organizaciones.</p>
+                <a class="about-link" href="#servicios">Descubre nuestras áreas <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="about-mark" aria-hidden="true">B<span>G</span><i>↗</i></div>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <a class="footer-brand" href="#inicio">Berry<span>Good</span></a>
+        <p>Ingeniería para lo que viene.</p>
+        <a href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a>
+        <small>© 2026 BerryGood</small>
+    </footer>
 </body>
 </html>
