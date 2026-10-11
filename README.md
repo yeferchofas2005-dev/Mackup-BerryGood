@@ -83,8 +83,8 @@ Como las páginas están en carpetas diferentes, sus enlaces y referencias a CSS
 
 ## Estado actual
 
-La portada de BerryGood y el loader raíz están implementados. Los archivos `indexBananoMarketing.html`, `indexLemon.ia.html` e `indexOrangeDev.html` existen como esqueletos iniciales y todavía requieren su diseño. Las carpetas de CSS y JavaScript de esas áreas están preparadas para recibir sus archivos siguiendo la convención anterior.
+La portada de BerryGood, el loader raíz y la página de OrangeDev están implementados. OrangeDev presenta sus servicios de desarrollo web, software personalizado y escalabilidad, además de sus beneficios y metodología ágil. Las páginas de BananoMarketing y Lemon.IA todavía requieren su diseño.
 
 ## Cómo probar el mockup
 
-No se requiere instalación de paquetes. Para revisar el flujo completo, abrir el `index.html` de la raíz en un navegador y esperar los 10 segundos del loader. También se puede abrir directamente `html/berryGoodhtml/indexBerryGood.html` para revisar la portada y sus botones.
+No se requiere instalación de paquetes. Para revisar el flujo completo, abrir el `index.html` de la raíz en un navegador y esperar los 10 segundos del loader. También se pueden abrir directamente `html/berryGoodhtml/indexBerryGood.html` y `html/orangeDevhtml/indexOrangeDev.html` para revisar la portada y la página de OrangeDev.
