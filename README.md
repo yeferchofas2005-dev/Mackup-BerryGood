@@ -23,6 +23,7 @@ Mackup/
 |   |-- berryGoodcss/
 |   |   `-- styleBerryGood.css
 |   |-- bananoMarketingcss/
+|   |   `-- styleBananoMarketing.css
 |   |-- lemon.iacss/
 |   `-- orangeDevcss/
 |-- html/
@@ -83,8 +84,8 @@ Como las páginas están en carpetas diferentes, sus enlaces y referencias a CSS
 
 ## Estado actual
 
-La portada de BerryGood, el loader raíz y la página de OrangeDev están implementados. OrangeDev presenta sus servicios de desarrollo web, software personalizado y escalabilidad, además de sus beneficios y metodología ágil. Las páginas de BananoMarketing y Lemon.IA todavía requieren su diseño.
+La portada de BerryGood, la página de BananoMarketing y la página de OrangeDev están implementadas. BananoMarketing presenta servicios de marketing, automatización e inteligencia artificial; OrangeDev presenta sus servicios de desarrollo web, software personalizado y escalabilidad, además de sus beneficios y metodología ágil. La página de Lemon.IA todavía requiere su diseño.
 
 ## Cómo probar el mockup
 
-No se requiere instalación de paquetes. Para revisar el flujo completo, abrir el `index.html` de la raíz en un navegador y esperar los 10 segundos del loader. También se pueden abrir directamente `html/berryGoodhtml/indexBerryGood.html` y `html/orangeDevhtml/indexOrangeDev.html` para revisar la portada y la página de OrangeDev.
+No se requiere instalación de paquetes. Para revisar el flujo completo, abrir el `index.html` de la raíz y esperar los 10 segundos del loader. También se pueden abrir directamente `html/berryGoodhtml/indexBerryGood.html`, `html/bananoMarketinghtml/indexBananoMarketing.html` y `html/orangeDevhtml/indexOrangeDev.html` para revisar sus páginas.
