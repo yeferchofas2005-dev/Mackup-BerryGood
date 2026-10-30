@@ -73,18 +73,36 @@ h1, h2, h3 {
 }
 .skip-link:focus { transform: translateY(0); }
 
-/* ── Header ──────────────────────────────────────────── */
+/* ── Header Wrapper (Full-width edge-to-edge sticky) ── */
+.header-wrapper {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(17, 19, 24, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.header-wrapper.scrolled {
+    background: rgba(17, 19, 24, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .site-header {
-    position: relative;
-    z-index: 50;
     display: flex;
     width: min(100% - 64px, 1180px);
-    height: 86px;
+    height: 82px;
     align-items: center;
     justify-content: space-between;
-    margin: auto;
-    border-bottom: 1px solid var(--line);
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    margin: 0 auto;
 }
 
 /* ── Brand ───────────────────────────────────────────── */

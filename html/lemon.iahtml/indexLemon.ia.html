@@ -17,19 +17,21 @@
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
-<header class="site-header">
-    <a class="brand" href="#inicio" aria-label="lemon.ia by BerryGood, inicio">
-        <img src="lemon-horizontal.png" alt="lemon.ia by BerryGood" class="brand-horizontal-logo">
-    </a>
-    <nav class="main-nav" aria-label="Navegación principal">
-        <a href="#soluciones">Soluciones</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#faq">FAQ</a>
-        <a class="nav-cta" href="#hablemos">
-            <span>🍋</span> ¡Hablemos!
+<header class="header-wrapper" id="site-header-wrapper">
+    <div class="site-header">
+        <a class="brand" href="#inicio" aria-label="lemon.ia by BerryGood, inicio">
+            <img src="lemon-horizontal.png" alt="lemon.ia by BerryGood" class="brand-horizontal-logo">
         </a>
-    </nav>
+        <nav class="main-nav" aria-label="Navegación principal">
+            <a href="#soluciones">Soluciones</a>
+            <a href="#proceso">Proceso</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#faq">FAQ</a>
+            <a class="nav-cta" href="#hablemos">
+                <span>🍋</span> ¡Hablemos!
+            </a>
+        </nav>
+    </div>
 </header>
 
 <!-- ═══════════════════════════ MAIN ═══════════════════════════ -->
@@ -507,19 +509,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 /* ── Header shadow on scroll ── */
-const header = document.querySelector('.site-header');
+const headerWrapper = document.getElementById('site-header-wrapper');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
-        header.style.boxShadow = '0 4px 24px rgba(0,0,0,0.45)';
-        header.style.background = 'rgba(17,19,24,0.96)';
-        header.style.backdropFilter = 'blur(18px)';
-        header.style.position = 'sticky';
-        header.style.top = '0';
+        headerWrapper.classList.add('scrolled');
     } else {
-        header.style.boxShadow = '';
-        header.style.background = '';
-        header.style.backdropFilter = '';
-        header.style.position = '';
+        headerWrapper.classList.remove('scrolled');
     }
 }, { passive: true });
 </script>
