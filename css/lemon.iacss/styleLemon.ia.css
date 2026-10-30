@@ -250,19 +250,20 @@ h1, h2, h3 {
 }
 
 .hero h1 {
-    max-width: 670px;
-    margin-bottom: 20px;
-    font-size: clamp(38px, 4.6vw, 62px);
+    max-width: 600px;
+    margin-bottom: 18px;
+    font-size: clamp(28px, 3.2vw, 42px);
     font-weight: 900;
-    letter-spacing: -2.5px;
-    line-height: 1.08;
+    letter-spacing: -1.2px;
+    line-height: 1.15;
     color: #FFFFFF;
     font-family: 'Syne', 'Manrope', sans-serif;
 }
 
 .hero h1 span {
     color: var(--lemon);
-    display: inline;
+    display: block;
+    margin-top: 4px;
 }
 
 .pulse-dot {
@@ -330,11 +331,11 @@ h1, h2, h3 {
 .bar-rose { width: 16px; background: #F43F5E; }
 
 .hero-description {
-    max-width: 530px;
-    margin-bottom: 28px;
-    color: #E2E8F0;
-    font-size: 16px;
-    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 24px;
+    color: #CBD5E1;
+    font-size: 14.5px;
+    line-height: 1.65;
 }
 .hero-description strong {
     color: #FFFFFF;
