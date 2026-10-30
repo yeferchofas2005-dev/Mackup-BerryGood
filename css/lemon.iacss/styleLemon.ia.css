@@ -225,7 +225,7 @@ h1, h2, h3 {
 .hero-copy {
     position: relative;
     z-index: 10;
-    max-width: 630px;
+    max-width: 650px;
 }
 
 .hero .eyebrow {
@@ -250,18 +250,20 @@ h1, h2, h3 {
 }
 
 .hero h1 {
-    max-width: 660px;
+    max-width: 640px;
     margin-bottom: 22px;
-    font-size: clamp(42px, 5.4vw, 70px);
+    font-size: clamp(34px, 4vw, 52px);
     font-weight: 800;
-    letter-spacing: -3.8px;
-    line-height: 1.06;
+    letter-spacing: -2px;
+    line-height: 1.12;
     color: #FFFFFF;
     font-family: "Manrope", "Segoe UI", sans-serif;
 }
 
 .hero h1 span {
     color: var(--lemon);
+    display: block;
+    margin-top: 4px;
 }
 
 .hero-description {
@@ -1131,8 +1133,9 @@ h1, h2, h3 {
     }
 
     .hero h1 {
-        font-size: clamp(40px, 6.2vw, 58px);
-        letter-spacing: -3px;
+        font-size: clamp(32px, 4.8vw, 46px);
+        letter-spacing: -1.6px;
+        line-height: 1.14;
     }
 
     .hero-art-col {
@@ -1159,9 +1162,10 @@ h1, h2, h3 {
     html { scroll-padding-top: 72px; }
 
     .hero h1 {
-        max-width: 540px;
-        font-size: clamp(40px, 11.5vw, 56px);
-        letter-spacing: -2.8px;
+        max-width: 100%;
+        font-size: clamp(30px, 8vw, 40px);
+        letter-spacing: -1.2px;
+        line-height: 1.16;
     }
 
     .hero-description {
