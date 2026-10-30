@@ -977,30 +977,85 @@ h1, h2, h3 {
 .contact {
     position: relative;
     display: flex;
-    min-height: 255px;
+    min-height: 280px;
     align-items: center;
     justify-content: space-between;
-    gap: 32px;
+    gap: 40px;
     margin-top: 80px;
     margin-bottom: 82px;
-    padding: 45px 6%;
+    padding: 50px 6%;
     overflow: hidden;
-    border-radius: 16px;
-    background: var(--lemon);
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--lemon) 0%, #D4F826 100%);
     color: var(--bg);
+    box-shadow: 0 16px 48px rgba(223, 255, 63, 0.22);
+}
+
+.contact-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
 }
 
 .contact .eyebrow {
-    margin-bottom: 15px;
-    color: rgba(17, 19, 24, 0.68);
+    margin-bottom: 12px;
+    color: rgba(17, 19, 24, 0.72);
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
 .contact h2 {
-    max-width: 550px;
-    font-size: clamp(34px, 4vw, 52px);
+    max-width: 650px;
+    font-size: clamp(34px, 4.2vw, 54px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -2px;
     color: var(--bg);
+    margin-bottom: 14px;
 }
-.contact h2 span { color: #3a5a00; }
+.contact h2 span {
+    color: #446400;
+}
+
+.contact-desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(17, 19, 24, 0.85);
+    margin: 0 0 18px;
+    font-weight: 500;
+    max-width: 620px;
+}
+.contact-desc strong {
+    color: #111318;
+    font-weight: 800;
+}
+
+.contact-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.contact-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(17, 19, 24, 0.10);
+    color: #111318;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(17, 19, 24, 0.12);
+}
+
+.contact-actions {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
 
 .button-dark {
     position: relative;
@@ -1009,25 +1064,29 @@ h1, h2, h3 {
     background: var(--bg);
     color: var(--text);
     display: inline-flex;
-    min-height: 48px;
+    min-height: 52px;
     align-items: center;
     justify-content: center;
-    gap: 13px;
-    padding: 0 24px;
+    gap: 12px;
+    padding: 0 28px;
     border-radius: 999px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
-    transition: all 0.2s ease;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 24px rgba(17, 19, 24, 0.25);
 }
 .button-dark:hover {
-    background: #292d37;
+    background: #242834;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 12px 32px rgba(17, 19, 24, 0.35);
+    color: var(--lemon);
 }
 
 .contact-decoration {
     position: absolute;
-    right: 22%;
+    right: 18%;
     bottom: -92px;
     color: rgba(17, 19, 24, 0.055);
     font-family: "Arial Black", sans-serif;
