@@ -440,6 +440,20 @@ h2 {
     font-size: 17px;
 }
 
+.visual-caption-top {
+    top: 26px;
+    left: -14px;
+    right: auto;
+    bottom: auto;
+    border-color: rgba(201, 140, 255, 0.32);
+    z-index: 2;
+}
+
+.visual-caption-top span {
+    color: #FACC15;
+    font-size: 14px;
+}
+
 .scroll-cue {
     position: absolute;
     bottom: 20px;
@@ -704,14 +718,15 @@ h2 {
     display: block;
     width: 100%;
     max-width: 210px;
-    height: auto;
+    height: 135px;
+    object-fit: contain;
     margin: 14px auto 0;
     filter: drop-shadow(0 10px 18px rgba(109, 22, 199, 0.12));
 }
 
 .lemon-image {
-    max-width: 150px;
-    filter: drop-shadow(0 8px 16px rgba(164, 200, 71, 0.18));
+    max-width: 260px;
+    filter: drop-shadow(0 8px 16px rgba(164, 200, 71, 0.22));
 }
 
 .service-description {
@@ -935,6 +950,14 @@ h2 {
         font-size: 9px;
     }
 
+    .visual-caption-top {
+        top: 10px;
+        left: -6px;
+        right: auto;
+        bottom: auto;
+        font-size: 9px;
+    }
+
     .section-heading {
         align-items: flex-start;
         flex-direction: column;
@@ -1059,6 +1082,11 @@ h2 {
     .visual-caption {
         right: 0;
         bottom: 1px;
+    }
+
+    .visual-caption-top {
+        top: 0;
+        left: 0;
     }
 
     .scroll-cue {

@@ -19,7 +19,7 @@
 <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
 <header class="header-wrapper" id="site-header-wrapper">
     <div class="site-header">
-        <a class="brand" href="#inicio" aria-label="lemon.ia by BerryGood, inicio">
+        <a class="brand" href="../berryGoodhtml/indexBerryGood.html" aria-label="lemon.ia by BerryGood, ir a BerryGood" title="Ir a BerryGood">
             <img src="lemon-horizontal.png" alt="lemon.ia by BerryGood" class="brand-horizontal-logo">
         </a>
         <nav class="main-nav" aria-label="Navegación principal">
@@ -43,7 +43,11 @@
             <!-- Eyebrow matching BananoMarketing & OrangeDev style -->
             <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> IA Y AUTOMATIZACIÓN A TU MEDIDA</p>
 
-            <h1 id="hero-title">Ideas extraordinarias. <span>Tecnología que las hace</span> <span class="title-accent-center">realidad.</span></h1>
+            <h1 id="hero-title">
+                <span class="title-white">Ideas extraordinarias.</span>
+                <span class="title-lemon">Tecnología que las hace</span>
+                <span class="title-lemon">realidad.</span>
+            </h1>
 
             <p class="hero-description">Creamos soluciones inteligentes que automatizan procesos, optimizan tu operación y hacen crecer tu negocio.</p>
 
@@ -72,6 +76,8 @@
                     <span>Más Resultados, Menos Costo</span>
                 </div>
             </div>
+
+            <p class="hero-tagline">Lo imaginas. Lo diseñamos. <span>Lo hacemos realidad.</span></p>
         </div>
 
         <!-- RIGHT COLUMN: 3D AI Automation Core Graphic -->
@@ -111,17 +117,18 @@
         </svg>
     </div>
 
-    <section class="logos-bar-wrap" aria-label="Empresas aliadas">
-        <p class="logos-bar-title">Empresas &amp; Startups que automatizan con lemon.ia</p>
+    <section class="logos-bar-wrap" aria-label="Manifiesto">
+        <p class="logos-bar-title">PARA QUIENES NO LE TEMEN AL CAMBIO, SINO QUE LO CONVIERTEN EN OPORTUNIDAD.</p>
         <div class="logos-pills">
-            <span class="logo-pill">TechCorp</span>
-            <span class="logo-pill">InnovateMX</span>
-            <span class="logo-pill">StartupHub</span>
-            <span class="logo-pill">GrowthCo</span>
-            <span class="logo-pill">DataPro</span>
-            <span class="logo-pill">Cloudify</span>
-            <span class="logo-pill" style="border-color:#FACC15;color:#FACC15;">BerryGood Group</span>
+            <span class="logo-pill">INNOVAR</span>
+            <span class="logo-pill">EVOLUCIONAR</span>
+            <span class="logo-pill">PENSAR DIFERENTE</span>
+            <span class="logo-pill">AUTOMATIZAR</span>
+            <span class="logo-pill">CRECER</span>
+            <span class="logo-pill">PRODUCIR MÁS</span>
+            <span class="logo-pill">IR MÁS LEJOS</span>
         </div>
+        <p class="logos-bar-subtitle">Menos excusas, más acción.</p>
     </section>
 
     <div class="sawtooth-wrapper sawtooth-bottom" aria-hidden="true">
@@ -132,9 +139,9 @@
 
     <!-- ── INTRO BAND ── -->
     <section class="intro-band" aria-label="Propuesta de valor">
-        <p>CERO TAREAS MANUALES</p><span aria-hidden="true">⚡</span>
-        <p>AGENTES AUTÓNOMOS 24/7</p><span aria-hidden="true">⚡</span>
-        <p>IA ENTRENADA CON TU NEGOCIO</p>
+        <p>PENSAR DIFERENTE</p><span aria-hidden="true">✳</span>
+        <p>ATREVERSE</p><span aria-hidden="true">✳</span>
+        <p>HACERLO REALIDAD</p>
     </section>
 
     <!-- ── SOLUTIONS ── -->
@@ -309,6 +316,11 @@
                 <h3>El Respaldo de BerryGood</h3>
                 <p>La agilidad y vanguardia de lemon.ia respaldada por la arquitectura robusta y experiencia técnica comprobada de BerryGood.</p>
             </div>
+            <div class="benefit-card benefit-card-center">
+                <div class="benefit-icon" aria-hidden="true">💡</div>
+                <h3>Tus ideas merecen hacerse realidad</h3>
+                <p>¿Tienes una idea ambiciosa, un proyecto diferente o un sueño que parece imposible? Nos encantan los retos. Ponemos a tu disposición nuestro talento, ingeniería y creatividad para transformar tus ideas en soluciones reales. ¡Atrévete a proponer, nosotros te ayudamos a construir!</p>
+            </div>
         </div>
     </section>
 
@@ -412,7 +424,7 @@
 
 <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
 <footer class="site-footer">
-    <a class="footer-brand" href="../../html/berryGoodhtml/indexBerryGood.html" aria-label="Volver a BerryGood">
+    <a class="footer-brand" href="../berryGoodhtml/indexBerryGood.html" aria-label="Volver a BerryGood" title="Ir a BerryGood">
         <img src="lemon-horizontal.png" alt="lemon.ia by BerryGood" class="brand-logo-img">
     </a>
     <p>La división de IA y automatización de BerryGood. Agentes autónomos que trabajan 24/7.</p>
@@ -496,6 +508,63 @@ window.addEventListener('scroll', () => {
         headerWrapper.classList.remove('scrolled');
     }
 }, { passive: true });
+
+/* ── Scroll Reveal Animations (BerryGood style) ── */
+const revealItems = document.querySelectorAll(
+    '.section-heading, .solution-card, .method-copy, .method-steps li, .benefit-card, .faq-header, .faq-item, .contact, .stat-item, .logos-bar-wrap'
+);
+
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    let staggerIndex = 0;
+    revealItems.forEach((item) => {
+        item.classList.add('reveal');
+
+        if (item.matches('.solution-card, .method-steps li, .benefit-card, .stat-item')) {
+            item.style.setProperty('--reveal-delay', `${(staggerIndex % 4) * 85}ms`);
+            staggerIndex += 1;
+        }
+
+        revealObserver.observe(item);
+    });
+} else {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+}
+
+/* ── Active Nav Section Highlight on Scroll ── */
+const navLinks = [...document.querySelectorAll('.main-nav a[href^="#"]:not(.nav-cta)')];
+const trackedSections = document.querySelectorAll('main section[id]');
+
+if ('IntersectionObserver' in window && navLinks.length && trackedSections.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+        const visibleSections = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
+
+        if (!visibleSections.length) return;
+
+        const currentId = visibleSections[0].target.id;
+        navLinks.forEach(link => {
+            const isActive = link.getAttribute('href') === `#${currentId}`;
+            link.classList.toggle('active', isActive);
+            if (isActive) {
+                link.setAttribute('aria-current', 'location');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    }, { threshold: [0.15, 0.4, 0.7], rootMargin: '-15% 0px -40% 0px' });
+
+    trackedSections.forEach(section => sectionObserver.observe(section));
+}
 </script>
 
 </body>
