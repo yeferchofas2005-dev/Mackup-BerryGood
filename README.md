@@ -82,6 +82,12 @@ Como las páginas están en carpetas diferentes, sus enlaces y referencias a CSS
 - No agregar dependencias, servicios externos o backend al mockup sin acordarlo con el equipo. Si se incorporan, explicar cómo se ejecutan en este README.
 - Antes de compartir cambios, abrir las páginas modificadas en el navegador y comprobar estilos, enlaces y consola del navegador.
 
+## Modo día y noche
+
+La primera visita sigue el modo del dispositivo. El botón del encabezado lo cambia y la elección se recuerda en todas las páginas. `js/theme.js` aplica `data-theme` en `<html>`, y `css/theme.css` contiene solo los estilos del botón.
+
+Los colores del modo día de cada área van al final de su propia hoja de estilos, en la sección `Modo día`, con el selector `:root[data-theme="light"]`. Al agregar un color fijo o una imagen con letras blancas, revisar la página en ambos modos.
+
 ## Estado actual
 
 La portada de BerryGood, la página de BananoMarketing y la página de OrangeDev están implementadas. BananoMarketing presenta servicios de marketing, automatización e inteligencia artificial; OrangeDev presenta sus servicios de desarrollo web, software personalizado y escalabilidad, además de sus beneficios y metodología ágil. La página de Lemon.IA todavía requiere su diseño.

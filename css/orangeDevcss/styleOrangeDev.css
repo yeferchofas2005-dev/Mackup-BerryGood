@@ -1117,3 +1117,85 @@ h3 {
 		transition-duration: 0.01ms !important;
 	}
 }
+
+/* Modo día */
+:root[data-theme="light"] {
+	color-scheme: light;
+	color: #1b1d23;
+	background: #f5f7f2;
+	--orange: #b84800;
+	--orange-light: #a84200;
+	--bg-primary: #f5f7f2;
+	--bg-secondary: #eceee8;
+	--surface: #ffffff;
+	--text-primary: #1b1d23;
+	--text-secondary: #575c66;
+	--line: rgba(27, 29, 35, 0.12);
+}
+
+:root[data-theme="light"] .site-header {
+	border-bottom-color: rgba(27, 29, 35, 0.1);
+	background: rgba(245, 247, 242, 0.92);
+}
+
+:root[data-theme="light"] .skip-link,
+:root[data-theme="light"] .button-primary {
+	background: #ff7a18;
+	color: #111318;
+}
+
+:root[data-theme="light"] .button-primary:hover {
+	background: #ff9a3d;
+}
+
+:root[data-theme="light"] .proof-icon {
+	color: #6d16c7;
+}
+
+/* La ilustración de la portada conserva su apariencia oscura */
+:root[data-theme="light"] .brand-art,
+:root[data-theme="light"] .code-window {
+	--orange: #ff7a18;
+	--orange-light: #ff9a3d;
+	--text-primary: #f5f5f7;
+	--text-secondary: #a7abb5;
+	--line: rgba(245, 245, 247, 0.1);
+	color: #f5f5f7;
+}
+
+:root[data-theme="light"] .code-window {
+	box-shadow: 0 10px 24px rgba(27, 29, 35, 0.18);
+}
+
+:root[data-theme="light"] .brand-art {
+	box-shadow: 0 8px 18px rgba(27, 29, 35, 0.18);
+}
+
+:root[data-theme="light"] .floating-note {
+	border-color: rgba(27, 29, 35, 0.12);
+	background: #ffffff;
+	box-shadow: 0 8px 18px rgba(27, 29, 35, 0.14);
+	color: #1b1d23;
+}
+
+:root[data-theme="light"] .card-kicker,
+:root[data-theme="light"] .contact-caption,
+:root[data-theme="light"] .site-footer small {
+	color: #656a73;
+}
+
+:root[data-theme="light"] .service-card {
+	background: linear-gradient(145deg, #ffffff, #fbfcf8);
+}
+
+:root[data-theme="light"] .benefit-symbol {
+	color: #6d3fa0;
+}
+
+:root[data-theme="light"] .contact {
+	background: linear-gradient(125deg, rgba(255, 122, 24, 0.12), rgba(109, 22, 199, 0.1) 74%), #ffffff;
+}
+
+:root[data-theme="light"] .contact > p:not(.eyebrow) {
+	color: #3d4048;
+}

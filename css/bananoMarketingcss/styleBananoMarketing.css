@@ -1119,3 +1119,105 @@ h1 span,
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Modo día */
+:root[data-theme="light"] {
+    color-scheme: light;
+    color: #1b1d23;
+    background: #f5f7f2;
+    --banana: #7f5c00;
+    --banana-light: #6a4d00;
+    --green: #5f7d00;
+    --bg: #f5f7f2;
+    --bg-soft: #ffffff;
+    --surface: #ffffff;
+    --text: #1b1d23;
+    --muted: #575c66;
+    --line: rgba(27, 29, 35, 0.12);
+}
+
+:root[data-theme="light"] .site-header {
+    background: rgba(245, 247, 242, 0.88);
+}
+
+:root[data-theme="light"] .site-header.is-scrolled {
+    background: rgba(245, 247, 242, 0.96);
+    box-shadow: 0 10px 30px rgba(27, 29, 35, 0.1);
+}
+
+/* Los logos de esta área traen letras blancas: llevan fondo oscuro */
+:root[data-theme="light"] .brand-logo {
+    background: #222631;
+}
+
+:root[data-theme="light"] .hero-title-image {
+    border-radius: 20px;
+    background: #15171d;
+}
+
+:root[data-theme="light"] .skip-link,
+:root[data-theme="light"] .button-primary {
+    background: #f5c542;
+    color: #1b1d23;
+}
+
+:root[data-theme="light"] .button-primary:hover {
+    background: #ffd95a;
+}
+
+:root[data-theme="light"] .orbit-small {
+    border-color: rgba(27, 29, 35, 0.12);
+}
+
+:root[data-theme="light"] .float-card {
+    border-color: rgba(27, 29, 35, 0.12);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 16px 48px rgba(27, 29, 35, 0.14);
+}
+
+:root[data-theme="light"] .art-caption,
+:root[data-theme="light"] .solution-index {
+    color: #656a73;
+}
+
+:root[data-theme="light"] .intro-band {
+    background: #eceee8;
+}
+
+:root[data-theme="light"] .intro-band p,
+:root[data-theme="light"] .solution-tag {
+    color: #33363d;
+}
+
+:root[data-theme="light"] .solution-card:hover {
+    background: #ffffff;
+}
+
+:root[data-theme="light"] .solution-card.featured-card {
+    background: linear-gradient(145deg, #fff6d8, #ffffff 72%);
+}
+
+:root[data-theme="light"] .method {
+    background: linear-gradient(125deg, #ffffff, #f0f2ec);
+}
+
+:root[data-theme="light"] .contact {
+    background: #f5c542;
+    color: #1b1d23;
+}
+
+:root[data-theme="light"] .button-dark {
+    background: #1b1d23;
+    color: #f5f5f7;
+}
+
+:root[data-theme="light"] .button-dark:hover {
+    background: #292d37;
+}
+
+/* El encabezado ocupa todo el ancho para dar espacio al botón de modo */
+@media (max-width: 640px) {
+    .site-header {
+        width: 100%;
+    }
+}
