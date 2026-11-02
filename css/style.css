@@ -25,15 +25,26 @@ body {
 }
 
 .loading-screen {
-	position: relative;
+	position: fixed;
+	z-index: 1000;
+	inset: 0;
 	display: grid;
-	min-height: 100vh;
 	place-items: center;
 	overflow: hidden;
+	color: #351044;
+	transition: opacity 250ms ease;
 	padding: 48px 24px 76px;
 	background-color: #f8f2fb;
 	background-image: linear-gradient(rgba(113, 52, 155, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(113, 52, 155, 0.035) 1px, transparent 1px);
 	background-size: 34px 34px;
+}
+
+.loading-screen.is-leaving {
+	opacity: 0;
+}
+
+.skip-loader .loading-screen {
+	display: none;
 }
 
 .loading-content {
@@ -141,7 +152,7 @@ body {
 	color: var(--berry);
 }
 
-h1 {
+.loading-title {
 	max-width: 400px;
 	margin: 0;
 	font-family: 'Manrope', sans-serif;

@@ -16,7 +16,7 @@ Este repositorio contiene el **mockup frontend de BerryGood**. Su propósito es 
 
 ```text
 Mackup/
-|-- index.html                         # Loader inicial; redirige a BerryGood
+|-- index.html                         # Portada de BerryGood con el loader inicial
 |-- README.md
 |-- css/
 |   |-- style.css                      # Estilos del loader raíz
@@ -28,7 +28,7 @@ Mackup/
 |   `-- orangeDevcss/
 |-- html/
 |   |-- berryGoodhtml/
-|   |   `-- indexBerryGood.html        # Portada y navegación del mockup
+|   |   `-- indexBerryGood.html        # Redirige a la portada (index.html)
 |   |-- bananoMarketinghtml/
 |   |   `-- indexBananoMarketing.html
 |   |-- lemon.iahtml/
@@ -58,15 +58,15 @@ Usar el nombre del área al final del nombre del archivo, respetando mayúsculas
 
 Guardar cada archivo en la carpeta correspondiente. Por ejemplo, el CSS de OrangeDev va en `css/orangeDevcss/styleOrangeDev.css`, y el HTML de Lemon.IA va en `html/lemon.iahtml/indexLemon.ia.html`.
 
-Los archivos de la raíz son una excepción intencional: `index.html`, `css/style.css` y `js/main.js` pertenecen al loader común y mantienen esos nombres porque no son archivos de una subsección.
+Los archivos de la raíz son una excepción intencional: `index.html` es la portada de BerryGood, y `css/style.css` y `js/main.js` pertenecen al loader común. Mantienen esos nombres porque no son archivos de una subsección.
 
 ## Navegación y rutas
 
 El flujo inicial es:
 
 1. Abrir `index.html` en la raíz.
-2. El loader muestra el progreso durante 10 segundos.
-3. Al terminar, navega a `html/berryGoodhtml/indexBerryGood.html`.
+2. El loader muestra el progreso durante 3 segundos, solo la primera vez en cada sesión del navegador.
+3. Al terminar, el loader desaparece y queda visible la portada en la misma dirección.
 4. La portada de BerryGood enlaza con el index de cada área.
 
 Como las páginas están en carpetas diferentes, sus enlaces y referencias a CSS/JS deben ser relativos a la ubicación del HTML. Después de mover o renombrar un archivo, revisar todos los enlaces que lo referencian. Mantener también el uso de mayúsculas y minúsculas exacto en cada ruta.
@@ -88,4 +88,4 @@ La portada de BerryGood, la página de BananoMarketing y la página de OrangeDev
 
 ## Cómo probar el mockup
 
-No se requiere instalación de paquetes. Para revisar el flujo completo, abrir el `index.html` de la raíz y esperar los 10 segundos del loader. También se pueden abrir directamente `html/berryGoodhtml/indexBerryGood.html`, `html/bananoMarketinghtml/indexBananoMarketing.html` y `html/orangeDevhtml/indexOrangeDev.html` para revisar sus páginas.
+No se requiere instalación de paquetes. Para revisar el flujo completo, abrir el `index.html` de la raíz. También se pueden abrir directamente `html/bananoMarketinghtml/indexBananoMarketing.html` y `html/orangeDevhtml/indexOrangeDev.html` para revisar sus páginas.

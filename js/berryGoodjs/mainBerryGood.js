@@ -51,3 +51,18 @@ if ('IntersectionObserver' in window) {
 
 	trackedSections.forEach((section) => sectionObserver.observe(section));
 }
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+	link.addEventListener('click', (event) => {
+		const target = document.querySelector(link.hash);
+
+		if (!target) {
+			return;
+		}
+
+		event.preventDefault();
+		target.scrollIntoView();
+		target.setAttribute('tabindex', '-1');
+		target.focus({ preventScroll: true });
+	});
+});
