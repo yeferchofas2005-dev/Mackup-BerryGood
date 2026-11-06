@@ -185,14 +185,14 @@
 .nd-hl {
 	padding: 0 .14em;
 	border-radius: 6px;
-	background: var(--hl-bg);
+	background: linear-gradient(transparent 16%, var(--hl-bg) 16%, var(--hl-bg) 94%, transparent 94%);
 	color: var(--hl-fg);
 	-webkit-box-decoration-break: clone;
 	box-decoration-break: clone;
 }
 
 .nd-hl-l {
-	background: var(--lav);
+	background: linear-gradient(transparent 16%, var(--lav) 16%, var(--lav) 94%, transparent 94%);
 	color: inherit;
 }
 
@@ -1009,7 +1009,7 @@
 	height: 100vh;
 	align-items: center;
 	overflow: hidden;
-	padding-top: 40px;
+	padding-top: 76px;
 }
 
 .nd-hs.is-horizontal .nd-hs-track {
@@ -1035,7 +1035,7 @@
 .nd-hs.is-horizontal .nd-brand-panel {
 	flex: none;
 	width: min(820px, 88vw);
-	height: min(660px, calc(100vh - 110px));
+	height: min(660px, calc(100vh - 116px));
 }
 
 .nd-hs.is-horizontal .nd-brand-panel-wide {
@@ -1471,7 +1471,7 @@
 }
 
 .nd-contact .nd-hl {
-	background: #ffd9e7;
+	background: linear-gradient(transparent 16%, #ffd9e7 16%, #ffd9e7 94%, transparent 94%);
 	color: #1b1030;
 }
 
@@ -1700,12 +1700,25 @@
 	}
 
 	.nd-brand-head {
-		grid-template-columns: auto 1fr;
+		grid-template-columns: 1fr auto;
+		gap: 14px;
 		padding: 18px;
 	}
 
-	.nd-brand-side {
+	.nd-brand-head > div {
 		grid-column: 1 / -1;
+		grid-row: 2;
+	}
+
+	.nd-brand-head h3 {
+		font-size: 1.45rem;
+		overflow-wrap: anywhere;
+	}
+
+	.nd-brand-side {
+		grid-row: 1;
+		grid-column: 2;
+		align-self: center;
 		flex-direction: row;
 		align-items: center;
 	}

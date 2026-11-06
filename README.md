@@ -111,7 +111,13 @@ Los colores del modo día de cada área van al final de su propia hoja de estilo
 
 ## Estado actual
 
-La portada de BerryGood, la página de BananoMarketing y la página de OrangeDev están implementadas. BananoMarketing presenta servicios de marketing, automatización e inteligencia artificial; OrangeDev presenta sus servicios de desarrollo web, software personalizado y escalabilidad, además de sus beneficios y metodología ágil. La página de Lemon.IA todavía requiere su diseño.
+La portada de BerryGood y las páginas de BananoMarketing, Lemon.IA y OrangeDev están implementadas:
+
+- **BananoMarketing:** 8 servicios de marketing, automatización e inteligencia artificial.
+- **Lemon.IA:** 8 soluciones de IA y automatización, su metodología, beneficios y preguntas frecuentes.
+- **OrangeDev:** desarrollo web, software personalizado y escalabilidad, con sus beneficios y su metodología ágil.
+
+La portada tiene además un diseño nuevo en propuesta (ver "Diseño nuevo (propuesta)"), un botón flotante de WhatsApp (+57 321 302 6826) en ambos diseños y etiquetas Open Graph con la imagen `html/berryGoodhtml/og-berryGood.jpg` para la vista previa al compartir el enlace.
 
 ## Cómo probar el mockup
 
