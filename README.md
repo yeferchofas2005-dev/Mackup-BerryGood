@@ -82,6 +82,27 @@ Como las páginas están en carpetas diferentes, sus enlaces y referencias a CSS
 - No agregar dependencias, servicios externos o backend al mockup sin acordarlo con el equipo. Si se incorporan, explicar cómo se ejecutan en este README.
 - Antes de compartir cambios, abrir las páginas modificadas en el navegador y comprobar estilos, enlaces y consola del navegador.
 
+## Logo oficial
+
+El logo oficial de BerryGood es la berry hexagonal frambuesa con dos hojas verdes. Úsalo en todos los diseños nuevos.
+
+| Uso | Archivo |
+| --- | --- |
+| Logo en páginas (menú, pie, tarjetas) | `html/berryGoodhtml/logo-oficial-berryGood.png` (192 × 192, fondo transparente) |
+| Favicon | `favicon.ico` (16 y 32 px) y `favicon.png` (192 px) |
+| Ícono en iPhone/iPad | `apple-touch-icon.png` (180 px) |
+
+No redibujes el logo ni le cambies los colores. Si necesitas otro tamaño, genéralo a partir de `favicon.png`.
+
+## Diseño nuevo (propuesta)
+
+En la portada, el botón ✦ junto al sol/luna alterna entre el diseño actual y un diseño nuevo. La elección se recuerda, y el enlace `index.html?diseno=nuevo` abre la página directamente en la propuesta. El diseño actual no cambia.
+
+- `js/design.js`: aplica `data-design` en `<html>` y carga las animaciones solo cuando el diseño nuevo está activo.
+- `css/designToggle.css`: estilos del botón ✦.
+- `css/berryGoodcss/styleBerryGoodNuevo.css`: estilos del diseño nuevo. Todas sus clases empiezan con `nd-`.
+- `js/berryGoodjs/mainBerryGoodNuevo.js`: scroll horizontal de servicios (GSAP desde cdnjs, solo en el diseño nuevo), confeti y apariciones.
+
 ## Modo día y noche
 
 La primera visita sigue el modo del dispositivo. El botón del encabezado lo cambia y la elección se recuerda en todas las páginas. `js/theme.js` aplica `data-theme` en `<html>`, y `css/theme.css` contiene solo los estilos del botón.

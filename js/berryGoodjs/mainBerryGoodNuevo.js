@@ -193,7 +193,7 @@
 		}
 
 		// Ráfagas de confeti al bajar: cada título de sección dispara una vez
-		const headings = nd.querySelectorAll('.nd-head h2, .nd-plan-star');
+		const headings = nd.querySelectorAll('.nd-head h2, .nd-plan-star, .nd-cta-panel h2');
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (!entry.isIntersecting || entry.boundingClientRect.top < 0) {
@@ -309,14 +309,27 @@
 				},
 			});
 
-			gsap.utils.toArray(section.querySelectorAll('.nd-svc')).forEach((card) => {
+			gsap.utils.toArray(section.querySelectorAll('.nd-brand-panel, .nd-cta-panel')).forEach((card) => {
 				gsap.from(card, {
-					rotate: 4,
-					scale: .9,
+					rotate: 3,
+					scale: .92,
 					opacity: .4,
 					ease: 'none',
 					scrollTrigger: { trigger: card, containerAnimation: move, start: 'left 100%', end: 'left 60%', scrub: true },
 				});
+
+				// Los servicios de cada marca entran en cascada
+				const items = card.querySelectorAll('.nd-svc-item');
+				if (items.length) {
+					gsap.from(items, {
+						y: 24,
+						opacity: 0,
+						duration: .6,
+						ease: 'power3.out',
+						stagger: .05,
+						scrollTrigger: { trigger: card, containerAnimation: move, start: 'left 75%', toggleActions: 'play none none reverse' },
+					});
+				}
 			});
 
 			ScrollTrigger.refresh();
