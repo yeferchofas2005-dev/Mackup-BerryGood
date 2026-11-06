@@ -2685,3 +2685,16 @@
 	background: #fff;
 	transform: rotate(-12deg) scale(1.06);
 }
+
+/* ---------- Cliente pendiente de autorización ----------
+   En blanco y negro hasta que el cliente confirme; toma color al pasar el
+   mouse o al enfocarlo con el teclado. Para publicarlo normal, quitar la
+   clase nd-client-pending de la tarjeta en index.html. */
+.nd-client-pending :is(.nd-client-view img, .nd-client-bar) {
+	filter: grayscale(1);
+	transition: filter .45s ease, transform 1.2s cubic-bezier(.2, .8, .2, 1);
+}
+
+.nd-client-pending:is(:hover, :focus-within) :is(.nd-client-view img, .nd-client-bar) {
+	filter: none;
+}
