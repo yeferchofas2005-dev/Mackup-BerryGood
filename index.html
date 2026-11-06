@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/berryGoodcss/styleBerryGood.css">
     <link rel="stylesheet" href="css/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,500;62..125,600;62..125,800;62..125,900&display=swap">
+    <link rel="stylesheet" href="css/designToggle.css">
+    <link rel="stylesheet" href="css/berryGoodcss/styleBerryGoodNuevo.css">
     <script src="js/theme.js"></script>
+    <script src="js/design.js"></script>
     <script>
         try {
             if (sessionStorage.getItem('berryGoodLoaderVisto')) {
@@ -62,6 +68,9 @@
             <button class="theme-toggle" type="button" aria-label="Cambiar modo de color">
                 <svg class="theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
                 <svg class="theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+            </button>
+            <button class="design-toggle" type="button" aria-pressed="false" aria-label="Ver diseño nuevo">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z"/><path d="M18.5 15.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg>
             </button>
         </nav>
     </header>
@@ -181,5 +190,240 @@
         <a href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a>
         <small>© 2026 BerryGood</small>
     </footer>
+
+    <!-- =========================================================
+         DISEÑO NUEVO (propuesta, estilo "opción E").
+         Se muestra con data-design="nuevo" (js/design.js).
+         Estilos: css/berryGoodcss/styleBerryGoodNuevo.css
+         Animaciones: js/berryGoodjs/mainBerryGoodNuevo.js
+    ========================================================== -->
+    <div class="nd" id="nuevo-diseno">
+        <a class="nd-skip" href="#nd-contenido">Saltar al contenido</a>
+        <canvas class="nd-fx" aria-hidden="true"></canvas>
+
+        <header class="nd-nav nd-gut">
+            <div class="nd-wrap">
+                <a href="#nd-inicio" class="nd-logo" aria-label="BerryGood Agencia, inicio">
+                    <svg class="nd-berry" width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><circle cx="25" cy="38" r="15" fill="#EA222E" stroke="currentColor" stroke-width="3.5"/><circle cx="41" cy="33" r="13" fill="#F29BBF" stroke="currentColor" stroke-width="3.5"/><circle cx="20" cy="33" r="3" fill="#fff"/><path d="M31 20c3-8 11-11 18-7-6 2-10 4-13 10z" fill="#138C49" stroke="currentColor" stroke-width="3"/></svg>
+                    BerryGood <small>Agencia</small>
+                </a>
+                <ul class="nd-menu" id="nd-menu">
+                    <li><a href="#nd-servicios">Servicios</a></li>
+                    <li><a href="#nd-whatsapp">IA en WhatsApp</a></li>
+                    <li><a href="#nd-proceso">Cómo trabajamos</a></li>
+                    <li><a href="#nd-precios">Precios</a></li>
+                </ul>
+                <div class="nd-nav-actions">
+                    <button class="theme-toggle" type="button" aria-label="Cambiar modo de color">
+                        <svg class="theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                        <svg class="theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                    </button>
+                    <button class="design-toggle" type="button" aria-pressed="true" aria-label="Volver al diseño actual">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z"/><path d="M18.5 15.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg>
+                    </button>
+                    <a href="#nd-contacto" class="nd-btn nd-btn-dark nd-nav-cta">¡Hablemos!</a>
+                    <button class="nd-menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nd-menu"><span></span><span></span><span></span></button>
+                </div>
+            </div>
+        </header>
+
+        <main id="nd-contenido">
+            <section class="nd-hero nd-gut" id="nd-inicio">
+                <div class="nd-wrap nd-hero-grid">
+                    <div>
+                        <span class="nd-label nd-rv">Software · Inteligencia artificial · Marketing</span>
+                        <h1 class="nd-rv nd-d1">Tecnología que hace <span class="nd-hl">crecer</span> tu negocio</h1>
+                        <p class="nd-lead nd-rv nd-d2">Creamos páginas web, apps y sistemas a la medida. Ponemos agentes de IA a atender y vender por WhatsApp 24/7. Y llevamos más clientes a tu negocio con marketing digital.</p>
+                        <div class="nd-actions nd-rv nd-d3">
+                            <a href="#nd-contacto" class="nd-btn nd-btn-dark">Cotiza tu proyecto →</a>
+                            <a href="#nd-servicios" class="nd-btn nd-btn-light">Ver servicios</a>
+                        </div>
+                        <div class="nd-checks nd-rv nd-d3"><span>A la medida</span><span>Atención 24/7 con IA</span><span>Un solo equipo</span></div>
+                    </div>
+                    <div class="nd-stack nd-rv nd-d2" aria-hidden="true">
+                        <div class="nd-card nd-s-web nd-float"><div class="nd-bar"><i></i><i></i><i></i></div><div class="nd-t"></div><div class="nd-l"></div><div class="nd-l" style="width:72%"></div><div class="nd-g"><i></i><i></i><i></i></div></div>
+                        <div class="nd-card nd-s-chat nd-float nd-fd2"><div class="nd-who"><i></i><div>Asistente de tu negocio<small>en línea</small></div></div><p>¿Tienen domicilio hoy?</p><p class="nd-me">¡Sí! Te lo agendo para las 4 p.m. ¿Confirmo?</p></div>
+                        <div class="nd-card nd-s-stat nd-float nd-fd3"><span>Prospectos del mes</span><div class="nd-k">Más clientes</div><div class="nd-bars"><i style="height:30%"></i><i style="height:48%"></i><i style="height:40%"></i><i style="height:66%"></i><i style="height:58%"></i><i style="height:92%"></i></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="nd-ticker" aria-hidden="true"><div class="nd-tr">
+                <span>Páginas web</span><span>Apps móviles</span><span>Software a la medida</span><span>Sistemas internos</span><span>Agentes de IA</span><span>WhatsApp 24/7</span><span>Automatización</span><span>Integraciones</span><span>SEO</span><span>Redes sociales</span><span>Publicidad digital</span>
+                <span>Páginas web</span><span>Apps móviles</span><span>Software a la medida</span><span>Sistemas internos</span><span>Agentes de IA</span><span>WhatsApp 24/7</span><span>Automatización</span><span>Integraciones</span><span>SEO</span><span>Redes sociales</span><span>Publicidad digital</span>
+            </div></div>
+
+            <section class="nd-hs nd-gut" id="nd-servicios" aria-labelledby="nd-svc-title">
+                <div class="nd-hs-pin">
+                    <div class="nd-hs-track">
+                        <div class="nd-hs-intro nd-head">
+                            <span class="nd-label">Nuestros servicios</span>
+                            <h2 id="nd-svc-title">Tres frentes para que tu empresa <span class="nd-hl nd-hl-l">trabaje mejor y venda más</span></h2>
+                            <p>Cada frente tiene su propia marca dentro de BerryGood. Desliza para conocerlas →</p>
+                        </div>
+                        <article class="nd-svc nd-k1">
+                            <div class="nd-top"><div class="nd-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></div><span class="nd-tag">OrangeDev · Desarrollo</span></div>
+                            <div class="nd-body">
+                                <h3>Software a la medida</h3>
+                                <p>Construimos lo que tu negocio necesita, sin plantillas que te limiten.</p>
+                                <ul><li>Páginas web y tiendas online</li><li>Aplicaciones móviles</li><li>Software por suscripción mensual</li><li>Sistemas internos y paneles</li></ul>
+                                <a href="html/orangeDevhtml/indexOrangeDev.html" class="nd-more">Conocer OrangeDev <span>→</span></a>
+                            </div>
+                        </article>
+                        <article class="nd-svc nd-k2">
+                            <div class="nd-top"><div class="nd-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="14" height="11" rx="3"/><path d="M12 3v4M9.5 12h.01M14.5 12h.01M9.5 15h5"/></svg></div><span class="nd-tag">Lemon.ia · IA</span></div>
+                            <div class="nd-body">
+                                <h3>Automatización e IA</h3>
+                                <p>Quitamos tareas manuales a tu equipo para que se enfoque en lo importante.</p>
+                                <ul><li>Agentes de IA en WhatsApp 24/7</li><li>Automatización de procesos</li><li>Integración entre sistemas</li><li>Cero datos pasados a mano</li></ul>
+                                <a href="html/lemon.iahtml/indexLemon.ia.html" class="nd-more">Conocer Lemon.ia <span>→</span></a>
+                            </div>
+                        </article>
+                        <article class="nd-svc nd-k3">
+                            <div class="nd-top"><div class="nd-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-4l12-5v14L4 14zM16 9a3 3 0 010 6M7 15l1.5 4"/></svg></div><span class="nd-tag">BananoMarketing</span></div>
+                            <div class="nd-body">
+                                <h3>Marketing digital</h3>
+                                <p>Hacemos que te encuentren primero y convertimos visitas en clientes.</p>
+                                <ul><li>Posicionamiento en Google (SEO)</li><li>Gestión de redes sociales</li><li>Publicidad en Meta Ads</li><li>Bots para encontrar clientes</li></ul>
+                                <a href="html/bananoMarketinghtml/indexBananoMarketing.html" class="nd-more">Conocer BananoMarketing <span>→</span></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="nd-band-l nd-gut" id="nd-whatsapp">
+                <div class="nd-wrap nd-wa">
+                    <div class="nd-rv nd-head">
+                        <span class="nd-label">Agentes de IA para WhatsApp</span>
+                        <h2>Tu negocio atiende y vende <span class="nd-hl">las 24 horas</span></h2>
+                        <p class="nd-lead">Un asistente con inteligencia artificial, entrenado con tus productos, precios y horarios. Responde al instante, agenda citas y cierra ventas, incluso a las 2 a.m.</p>
+                        <div class="nd-feat">
+                            <div><b>Responde en segundos</b><span>Ningún cliente se queda esperando.</span></div>
+                            <div><b>Habla como tu marca</b><span>Con tu tono y tu catálogo.</span></div>
+                            <div><b>Agenda y cobra</b><span>Citas, pedidos y links de pago.</span></div>
+                            <div><b>Pasa a una persona</b><span>Cuando el caso lo necesita.</span></div>
+                        </div>
+                    </div>
+                    <div class="nd-rv nd-d2">
+                        <div class="nd-phone">
+                            <div class="nd-scr">
+                                <div class="nd-scr-top"><i>B</i><div>Tu negocio<small>en línea · responde al instante</small></div></div>
+                                <div class="nd-msgs">
+                                    <div class="nd-m">Hola, ¿todavía atienden? Quiero una página para mi restaurante <small>2:04 a.m.</small></div>
+                                    <div class="nd-m nd-me">¡Hola! Sí, te atiendo ahora 😊 ¿Quieres que tus clientes pidan domicilio desde la página? <small>2:04 a.m.</small></div>
+                                    <div class="nd-m">Sí, y que los pedidos me lleguen por WhatsApp <small>2:05 a.m.</small></div>
+                                    <div class="nd-m nd-me">Perfecto. Te propongo página con menú, pedidos en línea y un agente que los confirme. ¿Hablamos mañana? <small>2:05 a.m.</small></div>
+                                    <div class="nd-m nd-me nd-mcard"><b>📅 Llamada agendada</b><br>Mañana, 10:00 a.m.<small>Confirmación enviada</small></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="nd-gut" id="nd-proceso">
+                <div class="nd-wrap">
+                    <div class="nd-head nd-center nd-rv">
+                        <span class="nd-label">Cómo trabajamos</span>
+                        <h2>De la idea al lanzamiento en <span class="nd-hl">4 pasos</span></h2>
+                    </div>
+                    <div class="nd-steps">
+                        <div class="nd-step nd-rv" style="--c:var(--lav)"><span class="nd-n">1</span><h3>Diagnóstico</h3><p>Entendemos tu negocio, tus procesos y tus metas.</p></div>
+                        <div class="nd-step nd-rv nd-d1" style="--c:var(--pink)"><span class="nd-n">2</span><h3>Propuesta</h3><p>Alcance, tiempos y costos claros, por escrito.</p></div>
+                        <div class="nd-step nd-rv nd-d2" style="--c:var(--peri)"><span class="nd-n">3</span><h3>Construcción</h3><p>Desarrollamos por etapas y ves avances cada semana.</p></div>
+                        <div class="nd-step nd-rv nd-d3" style="--c:var(--mint)"><span class="nd-n">4</span><h3>Lanzamiento</h3><p>Publicamos, medimos y seguimos mejorando contigo.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="nd-gut nd-precios" id="nd-precios">
+                <div class="nd-wrap">
+                    <div class="nd-head nd-rv">
+                        <span class="nd-label">Servicios y precios · 2026</span>
+                        <h2>Lo que cuesta <span class="nd-hl nd-hl-l">crecer en internet</span></h2>
+                        <p>Valores en pesos colombianos. Escoge la página que necesitas hoy y súmale redes y publicidad cuando quieras más clientes.</p>
+                    </div>
+                    <div class="nd-plans">
+                        <article class="nd-plan nd-rv">
+                            <h3>Landing page básica</h3>
+                            <p class="nd-price">$<span class="nd-count" data-value="700000">700.000</span></p>
+                            <p class="nd-plan-note">Pago único</p>
+                            <ul><li>Una sola página</li><li>Botón de WhatsApp</li><li>Diseño para celular</li></ul>
+                        </article>
+                        <article class="nd-plan nd-plan-star nd-rv nd-d1">
+                            <span class="nd-badge">Recomendada</span>
+                            <h3>Web informativa profesional</h3>
+                            <p class="nd-price">$<span class="nd-count" data-value="1100000">1.100.000</span></p>
+                            <p class="nd-plan-note">Pago único · 50% para iniciar</p>
+                            <ul><li>Varias secciones</li><li>Servicios, testimonios y preguntas frecuentes</li><li>Botón de WhatsApp y formulario</li><li>SEO básico</li><li>Publicación incluida</li></ul>
+                        </article>
+                        <article class="nd-plan nd-rv nd-d2">
+                            <h3>Web + captura de prospectos</h3>
+                            <p class="nd-price">$<span class="nd-count" data-value="1350000">1.350.000</span></p>
+                            <p class="nd-plan-note">Pago único</p>
+                            <ul><li>Todo lo de la web profesional</li><li>Prospectos en Google Sheets</li><li>Aviso por cada prospecto nuevo</li></ul>
+                        </article>
+                        <article class="nd-plan nd-rv nd-d3">
+                            <h3>Web con CRM y automatizaciones</h3>
+                            <p class="nd-price"><small>Desde</small>$<span class="nd-count" data-value="1800000">1.800.000</span></p>
+                            <p class="nd-plan-note">Pago único</p>
+                            <ul><li>Todo lo anterior</li><li>Tablero de prospectos</li><li>Recordatorios automáticos</li><li>Resultados por canal</li></ul>
+                        </article>
+                    </div>
+                    <div class="nd-monthly">
+                        <div class="nd-mini nd-rv" style="--c:var(--mint)"><b>Gestión de redes sociales</b><p class="nd-price">$<span class="nd-count" data-value="500000">500.000</span><small>/mes</small></p><span>Contenido y publicación con estrategia y reporte mensual.</span></div>
+                        <div class="nd-mini nd-rv nd-d1" style="--c:var(--lav)"><b>Gestión de publicidad</b><p class="nd-price">$<span class="nd-count" data-value="200000">200.000</span><small>/mes</small></p><span>Campañas en Meta Ads, seguimiento semanal e informe.</span></div>
+                        <div class="nd-mini nd-rv nd-d2" style="--c:var(--pink)"><b>Agentes de IA y sistemas a la medida</b><p class="nd-price nd-price-txt">Tras diagnóstico</p><span>WhatsApp con IA, automatizaciones, integraciones y apps.</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="nd-gut nd-pt0">
+                <div class="nd-wrap">
+                    <div class="nd-head nd-rv">
+                        <span class="nd-label">¿Por qué BerryGood?</span>
+                        <h2>Tecnología seria, <span class="nd-hl nd-hl-l">trato cercano</span></h2>
+                    </div>
+                    <div class="nd-why nd-rv">
+                        <div style="--c:var(--lav)"><i></i><b>Enfoque en resultados</b><span>Medimos cada proyecto en ventas, tiempo ahorrado y clientes nuevos.</span></div>
+                        <div style="--c:var(--pink)"><i></i><b>Todo conectado</b><span>Tu web, tu WhatsApp, tu CRM y tus campañas trabajan juntos.</span></div>
+                        <div style="--c:var(--blue)"><i></i><b>Entregas ágiles</b><span>Avances visibles cada semana, sin sorpresas al final.</span></div>
+                        <div style="--c:var(--green)"><i></i><b>Lenguaje claro</b><span>Te explicamos todo sin tecnicismos.</span></div>
+                        <div style="--c:var(--red)"><i></i><b>Seguro y escalable</b><span>Buenas prácticas para que tu sistema crezca contigo.</span></div>
+                        <div style="--c:var(--lav)"><i></i><b>Soporte continuo</b><span>Seguimos mejorando tu solución después del lanzamiento.</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="nd-band-dark nd-gut" id="nd-contacto">
+                <div class="nd-wrap nd-contact">
+                    <div class="nd-rv nd-head">
+                        <span class="nd-label">Contacto</span>
+                        <h2>¿Listo para <span class="nd-hl">crecer</span>?</h2>
+                        <p class="nd-lead">Cuéntanos qué necesita tu negocio y te enviamos una propuesta clara, sin compromiso.</p>
+                    </div>
+                    <form class="nd-form nd-rv nd-d2">
+                        <div class="nd-field"><label for="nd-f-name">Nombre</label><input id="nd-f-name" required autocomplete="name"></div>
+                        <div class="nd-field"><label for="nd-f-contact">Correo o WhatsApp</label><input id="nd-f-contact" required></div>
+                        <div class="nd-field"><label for="nd-f-svc">¿Qué necesitas?</label><select id="nd-f-svc" required><option value="">Elige una opción</option><option>Página web o app</option><option>Agente de IA en WhatsApp</option><option>Automatización de procesos</option><option>Marketing digital</option><option>Varias de las anteriores</option></select></div>
+                        <div class="nd-field"><label for="nd-f-msg">Cuéntanos brevemente</label><textarea id="nd-f-msg" rows="3"></textarea></div>
+                        <button class="nd-btn nd-btn-red" type="submit">Solicitar propuesta →</button>
+                        <p class="nd-ok" role="status">¡Gracias! Te escribimos muy pronto.</p>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="nd-footer nd-gut">
+            <div class="nd-wrap">
+                <a href="#nd-inicio" class="nd-logo"><svg class="nd-berry" width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><circle cx="25" cy="38" r="15" fill="#EA222E" stroke="currentColor" stroke-width="3.5"/><circle cx="41" cy="33" r="13" fill="#F29BBF" stroke="currentColor" stroke-width="3.5"/><circle cx="20" cy="33" r="3" fill="#fff"/><path d="M31 20c3-8 11-11 18-7-6 2-10 4-13 10z" fill="#138C49" stroke="currentColor" stroke-width="3"/></svg> BerryGood</a>
+                <nav aria-label="Pie de página"><a href="#nd-servicios">Servicios</a><a href="#nd-whatsapp">IA en WhatsApp</a><a href="#nd-proceso">Cómo trabajamos</a><a href="#nd-contacto">Contacto</a></nav>
+                <span>© 2026 BerryGood Agencia</span>
+            </div>
+        </footer>
+
+        <a class="nd-wa-btn" href="#nd-contacto" aria-label="Escríbenos"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.8 11.9 11.9 0 004.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+    </div>
 </body>
 </html>
