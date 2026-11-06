@@ -366,6 +366,227 @@
 		document.fonts?.ready.then(() => running && ScrollTrigger.refresh());
 	}
 
+	/* ---------- Animaciones del hero ----------
+	   A1 · El titular entra palabra por palabra.
+	   A3 · Después, la palabra resaltada va rotando (crecer → destacar → ...).
+	   A5 · El chat muestra "escribiendo…" antes de cada respuesta, en bucle.
+	   A6 · Las barras de "Prospectos del mes" crecen y aparece el contador. */
+	const heroWords = ['crecer', 'destacar', 'despegar', 'brillar'];
+
+	function setupHeroAnimations() {
+		const hero = nd.querySelector('.nd-hero');
+		const title = hero?.querySelector('h1');
+
+		if (!title || reduceMotion.matches) {
+			return;
+		}
+
+		const timers = new Set();
+		const later = (fn, ms) => {
+			const id = setTimeout(() => {
+				timers.delete(id);
+				fn();
+			}, ms);
+			timers.add(id);
+		};
+		cleanups.push(() => timers.forEach(clearTimeout));
+
+		// A1 · Partir el titular en palabras (una sola vez)
+		if (!title.classList.contains('nd-words')) {
+			let index = 0;
+			[...title.childNodes].forEach((node) => {
+				if (node.nodeType === Node.TEXT_NODE) {
+					const fragment = document.createDocumentFragment();
+					node.textContent.split(/(\s+)/).forEach((part) => {
+						if (!part) {
+							return;
+						}
+						if (/^\s+$/.test(part)) {
+							fragment.append(part);
+							return;
+						}
+						const word = document.createElement('span');
+						word.className = 'nd-w';
+						word.innerHTML = `<span style="--i:${index++}"></span>`;
+						word.firstChild.textContent = part;
+						fragment.append(word);
+					});
+					node.replaceWith(fragment);
+				} else if (node.classList?.contains('nd-hl')) {
+					node.classList.add('nd-w-hl');
+					node.style.setProperty('--i', index++);
+				}
+			});
+			title.classList.remove('nd-rv', 'nd-d1');
+			title.classList.add('nd-words');
+		}
+
+		// Reinicia la entrada cada vez que el diseño nuevo arranca
+		title.classList.remove('is-play');
+		void title.offsetWidth;
+		title.classList.add('is-play');
+
+		// A3 · Palabra rotativa dentro del resaltado
+		const highlight = title.querySelector('.nd-hl');
+		if (highlight && !highlight.querySelector('.nd-rot')) {
+			highlight.setAttribute('aria-hidden', 'true');
+			highlight.innerHTML = `<span class="nd-rot">${heroWords[0]}</span>`;
+			const srOnly = document.createElement('span');
+			srOnly.className = 'nd-sr';
+			srOnly.textContent = heroWords[0];
+			highlight.after(srOnly);
+		}
+		const rotating = highlight?.querySelector('.nd-rot');
+		if (rotating) {
+			let current = 0;
+			const measure = (text) => {
+				const probe = rotating.cloneNode();
+				probe.textContent = text;
+				probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap';
+				highlight.append(probe);
+				const width = probe.getBoundingClientRect().width;
+				probe.remove();
+				return width;
+			};
+			const fitWidth = () => {
+				highlight.style.width = `${measure(rotating.textContent)}px`;
+			};
+			const rotate = () => {
+				if (!running) {
+					return;
+				}
+				current = (current + 1) % heroWords.length;
+				rotating.classList.add('is-out');
+				later(() => {
+					rotating.textContent = heroWords[current];
+					fitWidth();
+					rotating.classList.remove('is-out');
+					rotating.classList.add('is-in');
+					void rotating.offsetWidth;
+					rotating.classList.remove('is-in');
+				}, 320);
+				later(rotate, 2600);
+			};
+			rotating.textContent = heroWords[0];
+			document.fonts?.ready.then(fitWidth);
+			fitWidth();
+			listen(window, 'resize', fitWidth);
+			later(rotate, 3200);
+			cleanups.push(() => {
+				rotating.textContent = heroWords[0];
+				highlight.style.width = '';
+			});
+		}
+
+		// A5 · Chat que escribe
+		const chat = hero.querySelector('.nd-s-chat');
+		if (chat) {
+			const [question, answer] = chat.querySelectorAll('p');
+			const status = chat.querySelector('.nd-who small');
+			let typing = chat.querySelector('.nd-typing');
+			if (!typing) {
+				typing = document.createElement('p');
+				typing.className = 'nd-me nd-typing';
+				typing.innerHTML = '<i></i><i></i><i></i>';
+				chat.append(typing);
+			}
+			const show = (element, visible) => element.classList.toggle('is-hidden', !visible);
+			const conversation = () => {
+				if (!running) {
+					return;
+				}
+				show(question, false);
+				show(answer, false);
+				show(typing, false);
+				later(() => show(question, true), 700);
+				later(() => {
+					show(typing, true);
+					status.textContent = 'escribiendo…';
+				}, 1500);
+				later(() => {
+					show(typing, false);
+					show(answer, true);
+					status.textContent = 'en línea';
+				}, 3200);
+				later(conversation, 9000);
+			};
+			conversation();
+			cleanups.push(() => {
+				show(question, true);
+				show(answer, true);
+				show(typing, false);
+				status.textContent = 'en línea';
+			});
+		}
+
+		// A6 · Barras que crecen + contador
+		const stat = hero.querySelector('.nd-s-stat');
+		if (stat) {
+			let counter = stat.querySelector('.nd-stat-count');
+			if (!counter) {
+				counter = document.createElement('div');
+				counter.className = 'nd-stat-count';
+				counter.innerHTML = '+<b>0</b>% este mes';
+				stat.querySelector('.nd-k').after(counter);
+			}
+			const number = counter.querySelector('b');
+			number.textContent = '0';
+			stat.classList.remove('is-grown');
+			stat.classList.add('nd-grow');
+			const statObserver = new IntersectionObserver(([entry]) => {
+				if (!entry.isIntersecting) {
+					return;
+				}
+				statObserver.disconnect();
+				stat.classList.add('is-grown');
+				later(() => {
+					const startTime = performance.now();
+					const step = (now) => {
+						const progress = Math.min((now - startTime) / 1600, 1);
+						number.textContent = Math.round(38 * (1 - Math.pow(1 - progress, 3)));
+						if (progress < 1 && running) {
+							requestAnimationFrame(step);
+						}
+					};
+					requestAnimationFrame(step);
+				}, 500);
+			}, { threshold: .5 });
+			statObserver.observe(stat);
+			cleanups.push(() => statObserver.disconnect());
+		}
+	}
+
+	/* ---------- Videos de fondo (hero y "Cómo trabajamos") ----------
+	   No tienen autoplay en el HTML: solo se descargan y reproducen cuando el
+	   diseño nuevo está activo y el video está en pantalla. Con "reducir
+	   movimiento" se queda la imagen fija (poster). */
+	function setupBackgroundVideos() {
+		const videos = [...nd.querySelectorAll('.nd-bgvid-media')];
+
+		if (!videos.length || reduceMotion.matches) {
+			return;
+		}
+
+		const videoObserver = new IntersectionObserver((entries) => {
+			entries.forEach(({ target, isIntersecting }) => {
+				if (isIntersecting) {
+					target.play().then(() => target.classList.add('is-playing')).catch(() => {});
+				} else {
+					target.pause();
+				}
+			});
+		}, { rootMargin: '200px 0px' });
+
+		videos.forEach((video) => {
+			video.muted = true;
+			videoObserver.observe(video);
+		});
+		cleanups.push(() => {
+			videoObserver.disconnect();
+			videos.forEach((video) => video.pause());
+		});
+	}
+
 	function start() {
 		if (running) {
 			return;
@@ -374,7 +595,9 @@
 		running = true;
 		const confetti = createConfetti();
 		setupMenuAndForm(confetti);
+		setupBackgroundVideos();
 		setupReveal();
+		setupHeroAnimations();
 		setupConfettiInteractions(confetti);
 		setupHorizontalScroll();
 	}

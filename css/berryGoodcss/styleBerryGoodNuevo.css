@@ -2107,3 +2107,228 @@
 		transform: none !important;
 	}
 }
+
+/* =====================================================================
+   Videos de fondo (propuestas H1 y H4 de propuestas/index.html)
+   - Hero: partículas moradas (Pexels 7101912)
+   - Cómo trabajamos: equipo revisando un proyecto (Pexels 8519377)
+   El video lo reproduce js/berryGoodjs/mainBerryGoodNuevo.js solo si está
+   a la vista; mientras tanto se ve el poster.
+   ===================================================================== */
+.nd .nd-hero-video,
+.nd .nd-proceso-video {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+}
+
+.nd .nd-hero-video > .nd-wrap,
+.nd .nd-proceso-video > .nd-wrap {
+	position: relative;
+	z-index: 1;
+}
+
+.nd-bgvid {
+	position: absolute;
+	z-index: -1;
+	inset: 0;
+	pointer-events: none;
+}
+
+.nd-bgvid-media {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Velo: tapa el video detrás del texto y lo deja ver hacia la derecha */
+.nd-bgvid::after {
+	position: absolute;
+	inset: 0;
+	content: '';
+}
+
+.nd-hero-video .nd-bgvid::after {
+	background:
+		linear-gradient(90deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 88%, transparent) 42%, color-mix(in srgb, var(--bg) 30%, transparent) 100%),
+		linear-gradient(0deg, var(--bg) 0%, transparent 22%);
+}
+
+/* En "Cómo trabajamos" el texto va centrado: velo parejo y bordes que se funden */
+.nd-proceso-video .nd-bgvid::after {
+	background:
+		linear-gradient(180deg, var(--bg) 0%, transparent 18%, transparent 82%, var(--bg) 100%),
+		color-mix(in srgb, var(--bg) 76%, transparent);
+}
+
+:root[data-theme="light"] .nd-proceso-video .nd-bgvid::after {
+	background:
+		linear-gradient(180deg, var(--bg) 0%, transparent 18%, transparent 82%, var(--bg) 100%),
+		color-mix(in srgb, var(--bg) 82%, transparent);
+}
+
+/* Las flechas entre pasos necesitan contraste sobre el video */
+.nd-proceso-video .nd-step:not(:last-child)::after {
+	text-shadow: 0 0 12px var(--bg), 0 0 4px var(--bg);
+}
+
+@media (max-width: 1100px) {
+	.nd-hero-video .nd-bgvid::after {
+		background:
+			linear-gradient(0deg, var(--bg) 0%, transparent 25%),
+			color-mix(in srgb, var(--bg) 80%, transparent);
+	}
+}
+
+/* =====================================================================
+   Animaciones del hero (propuestas A1, A3, A5 y A6)
+   Las clases las agrega js/berryGoodjs/mainBerryGoodNuevo.js; sin JS o con
+   "reducir movimiento" el hero se ve estático y completo.
+   ===================================================================== */
+.nd-sr {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+/* A1 · Titular palabra por palabra */
+.nd-words .nd-w {
+	display: inline-block;
+	overflow: hidden;
+	padding-bottom: .16em;
+	margin-bottom: -.16em;
+	vertical-align: top;
+}
+
+.nd-words .nd-w > span,
+.nd-words .nd-w-hl {
+	display: inline-block;
+}
+
+.nd-words.is-play .nd-w > span,
+.nd-words.is-play .nd-w-hl {
+	animation: nd-word .8s cubic-bezier(.2, .8, .2, 1) both;
+	animation-delay: calc(var(--i) * 90ms + 150ms);
+}
+
+@keyframes nd-word {
+	from {
+		opacity: 0;
+		transform: translateY(105%);
+	}
+}
+
+/* A3 · Palabra rotativa dentro del resaltado */
+.nd-hero h1 .nd-hl {
+	display: inline-block;
+	box-sizing: content-box;
+	overflow: hidden;
+	/* Espacio extra abajo para letras como g o p, sin agrandar el resaltado */
+	padding-bottom: .16em;
+	margin-bottom: -.16em;
+	background-repeat: no-repeat;
+	background-size: 100% calc(100% - .16em);
+	/* Recorta arriba justo donde empieza la franja de color: la palabra que sale no se ve encima del titular */
+	clip-path: inset(14% 0 0 0);
+	vertical-align: bottom;
+	white-space: nowrap;
+	transition: width .45s cubic-bezier(.2, .8, .2, 1);
+}
+
+.nd-rot {
+	display: inline-block;
+	transition: transform .32s cubic-bezier(.4, 0, .2, 1), opacity .32s;
+}
+
+.nd-rot.is-out {
+	opacity: 0;
+	transform: translateY(-90%);
+}
+
+.nd-rot.is-in {
+	opacity: 0;
+	transform: translateY(90%);
+	transition: none;
+}
+
+/* A5 · Chat que escribe */
+.nd-s-chat p.is-hidden {
+	display: none;
+}
+
+.nd .nd-s-chat p:not(.is-hidden) {
+	animation: nd-bubble .4s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.nd .nd-s-chat p.nd-typing {
+	display: flex;
+	width: max-content;
+	gap: 4px;
+	padding: 11px 14px;
+}
+
+.nd .nd-s-chat p.nd-typing.is-hidden {
+	display: none;
+}
+
+.nd-typing i {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--mut);
+	animation: nd-dot 1s ease-in-out infinite;
+}
+
+.nd-typing i:nth-child(2) { animation-delay: .15s; }
+.nd-typing i:nth-child(3) { animation-delay: .3s; }
+
+@keyframes nd-bubble {
+	from {
+		opacity: 0;
+		transform: translateY(8px) scale(.9);
+	}
+}
+
+@keyframes nd-dot {
+	0%, 60%, 100% { opacity: .5; transform: none; }
+	30% { opacity: 1; transform: translateY(-4px); }
+}
+
+/* A6 · Barras que crecen + contador */
+.nd-grow .nd-bars i {
+	transform: scaleY(0);
+	transform-origin: bottom;
+}
+
+.nd-grow.is-grown .nd-bars i {
+	transform: none;
+	transition: transform .9s cubic-bezier(.34, 1.4, .64, 1);
+}
+
+.nd-grow.is-grown .nd-bars i:nth-child(2) { transition-delay: .08s; }
+.nd-grow.is-grown .nd-bars i:nth-child(3) { transition-delay: .16s; }
+.nd-grow.is-grown .nd-bars i:nth-child(4) { transition-delay: .24s; }
+.nd-grow.is-grown .nd-bars i:nth-child(5) { transition-delay: .32s; }
+.nd-grow.is-grown .nd-bars i:nth-child(6) { transition-delay: .4s; background: var(--red-solid); }
+
+.nd-stat-count {
+	margin-top: 4px;
+	color: var(--green);
+	font-size: .85rem;
+	font-weight: 800;
+	font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nd-words .nd-w > span,
+	.nd-words .nd-w-hl,
+	.nd .nd-s-chat p,
+	.nd-typing i {
+		animation: none !important;
+	}
+}
