@@ -292,6 +292,16 @@
 		}, { threshold: .6 });
 		nd.querySelectorAll('.nd-count').forEach((element) => countObserver.observe(element));
 		cleanups.push(() => countObserver.disconnect());
+
+		// Clientes: en celular la captura se recorre sola mientras la tarjeta está a la vista
+		const clientObserver = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => entry.target.classList.toggle('is-visible', entry.isIntersecting));
+		}, { threshold: .6 });
+		nd.querySelectorAll('.nd-client').forEach((card) => clientObserver.observe(card));
+		cleanups.push(() => {
+			clientObserver.disconnect();
+			nd.querySelectorAll('.nd-client.is-visible').forEach((card) => card.classList.remove('is-visible'));
+		});
 	}
 
 	/* ---------- Servicios con scroll horizontal ---------- */
