@@ -370,7 +370,7 @@
 	   A1 · El titular entra palabra por palabra.
 	   A3 · Después, la palabra resaltada va rotando (crecer → destacar → ...).
 	   A5 · El chat muestra "escribiendo…" antes de cada respuesta, en bucle.
-	   A6 · Las barras de "Prospectos del mes" crecen y aparece el contador. */
+	   A6 · Las barras de "Prospectos del mes" crecen al aparecer. */
 	const heroWords = ['crecer', 'destacar', 'despegar', 'brillar'];
 
 	function setupHeroAnimations() {
@@ -519,18 +519,9 @@
 			});
 		}
 
-		// A6 · Barras que crecen + contador
+		// A6 · Barras que crecen al aparecer (sin cifras: la tarjeta es ilustrativa)
 		const stat = hero.querySelector('.nd-s-stat');
 		if (stat) {
-			let counter = stat.querySelector('.nd-stat-count');
-			if (!counter) {
-				counter = document.createElement('div');
-				counter.className = 'nd-stat-count';
-				counter.innerHTML = '+<b>0</b>% este mes';
-				stat.querySelector('.nd-k').after(counter);
-			}
-			const number = counter.querySelector('b');
-			number.textContent = '0';
 			stat.classList.remove('is-grown');
 			stat.classList.add('nd-grow');
 			const statObserver = new IntersectionObserver(([entry]) => {
@@ -539,17 +530,6 @@
 				}
 				statObserver.disconnect();
 				stat.classList.add('is-grown');
-				later(() => {
-					const startTime = performance.now();
-					const step = (now) => {
-						const progress = Math.min((now - startTime) / 1600, 1);
-						number.textContent = Math.round(38 * (1 - Math.pow(1 - progress, 3)));
-						if (progress < 1 && running) {
-							requestAnimationFrame(step);
-						}
-					};
-					requestAnimationFrame(step);
-				}, 500);
 			}, { threshold: .5 });
 			statObserver.observe(stat);
 			cleanups.push(() => statObserver.disconnect());

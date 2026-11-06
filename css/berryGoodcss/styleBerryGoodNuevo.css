@@ -2299,7 +2299,7 @@
 	30% { opacity: 1; transform: translateY(-4px); }
 }
 
-/* A6 · Barras que crecen + contador */
+/* A6 · Barras que crecen */
 .nd-grow .nd-bars i {
 	transform: scaleY(0);
 	transform-origin: bottom;
@@ -2315,14 +2315,6 @@
 .nd-grow.is-grown .nd-bars i:nth-child(4) { transition-delay: .24s; }
 .nd-grow.is-grown .nd-bars i:nth-child(5) { transition-delay: .32s; }
 .nd-grow.is-grown .nd-bars i:nth-child(6) { transition-delay: .4s; background: var(--red-solid); }
-
-.nd-stat-count {
-	margin-top: 4px;
-	color: var(--green);
-	font-size: .85rem;
-	font-weight: 800;
-	font-variant-numeric: tabular-nums;
-}
 
 @media (prefers-reduced-motion: reduce) {
 	.nd-words .nd-w > span,
