@@ -1745,3 +1745,28 @@
 		transition: none !important;
 	}
 }
+
+/* ---------- WhatsApp ---------- */
+.nd .nd-btn-wa {
+	border-color: #25d366;
+	background: #25d366;
+	color: #0b2a17;
+}
+
+.nd .nd-btn-wa:hover {
+	border-color: #1ebe5b;
+	background: #1ebe5b;
+}
+
+.nd-wa-num {
+	margin-top: 14px !important;
+	color: var(--band-mut);
+	font-size: .95rem;
+}
+
+.nd-wa-num a {
+	color: #ffb3cf;
+	font-weight: 700;
+	text-decoration: underline !important;
+	text-underline-offset: 3px;
+}

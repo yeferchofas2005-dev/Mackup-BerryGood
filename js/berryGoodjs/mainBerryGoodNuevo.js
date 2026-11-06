@@ -39,6 +39,21 @@
 
 		listen(form, 'submit', (event) => {
 			event.preventDefault();
+
+			// Arma el mensaje con los datos del formulario y abre WhatsApp
+			const value = (selector) => form.querySelector(selector)?.value.trim() ?? '';
+			const lines = [
+				'Hola BerryGood 👋 Vi su página web y me gustaría recibir más información sobre sus servicios.',
+				'',
+				`Nombre: ${value('#nd-f-name')}`,
+				`Contacto: ${value('#nd-f-contact')}`,
+				`Necesito: ${value('#nd-f-svc')}`,
+			];
+			if (value('#nd-f-msg')) {
+				lines.push(`Mensaje: ${value('#nd-f-msg')}`);
+			}
+			window.open(`https://wa.me/${form.dataset.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+
 			form.classList.add('is-sent');
 			const rect = form.querySelector('button').getBoundingClientRect();
 			confetti.burst(rect.left + rect.width / 2, rect.top, 90, 9);
