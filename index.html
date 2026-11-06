@@ -558,25 +558,73 @@
                 </div>
             </section>
 
-            <section class="nd-band-dark nd-gut" id="nd-contacto">
+            <section class="nd-band-dark nd-gut nd-contact-sec" id="nd-contacto">
                 <div class="nd-wrap nd-contact">
-                    <div class="nd-rv nd-head">
+                    <div class="nd-rv nd-head nd-contact-info">
                         <span class="nd-label">Contacto</span>
                         <h2>¿Listo para <span class="nd-hl">crecer</span>?</h2>
                         <p class="nd-lead">Cuéntanos qué necesita tu negocio y te enviamos una propuesta clara, sin compromiso.</p>
-                        <div class="nd-actions">
-                            <a href="https://wa.me/573213026826?text=Hola%20BerryGood%20%F0%9F%91%8B%20Vi%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." class="nd-btn nd-btn-wa" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
-                        </div>
-                        <p class="nd-wa-num">o escríbenos al <a href="https://wa.me/573213026826?text=Hola%20BerryGood%20%F0%9F%91%8B%20Vi%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener">+57 321 302 6826</a></p>
+
+                        <ol class="nd-next" aria-label="Qué pasa después de escribirnos">
+                            <li><b>Nos cuentas tu idea</b><span>Por el formulario o directo por WhatsApp.</span></li>
+                            <li><b>Diagnóstico gratis</b><span>45 minutos para entender tu negocio y tus metas.</span></li>
+                            <li><b>Propuesta por escrito</b><span>Alcance, tiempos y costos claros, sin letra pequeña.</span></li>
+                        </ol>
+
+                        <a class="nd-wa-card" href="https://wa.me/573213026826?text=Hola%20BerryGood%20%F0%9F%91%8B%20Vi%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener">
+                            <span class="nd-wa-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.8 11.9 11.9 0 004.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></span>
+                            <span class="nd-wa-txt"><small>¿Prefieres escribir directo?</small><b>+57 321 302 6826</b></span>
+                            <span class="nd-wa-go" aria-hidden="true">→</span>
+                            <span class="nd-sr"> · Abrir WhatsApp</span>
+                        </a>
                     </div>
-                    <form class="nd-form nd-rv nd-d2" data-whatsapp="573213026826">
-                        <div class="nd-field"><label for="nd-f-name">Nombre</label><input id="nd-f-name" required autocomplete="name"></div>
-                        <div class="nd-field"><label for="nd-f-contact">Correo o WhatsApp</label><input id="nd-f-contact" required></div>
-                        <div class="nd-field"><label for="nd-f-svc">¿Qué necesitas?</label><select id="nd-f-svc" required><option value="">Elige una opción</option><option>Página web o app</option><option>Agente de IA en WhatsApp</option><option>Automatización de procesos</option><option>Marketing digital</option><option>Varias de las anteriores</option></select></div>
-                        <div class="nd-field"><label for="nd-f-msg">Cuéntanos brevemente</label><textarea id="nd-f-msg" rows="3"></textarea></div>
-                        <button class="nd-btn nd-btn-red" type="submit">Enviar por WhatsApp →</button>
-                        <p class="nd-ok" role="status">¡Listo! Abrimos WhatsApp con tu mensaje para que lo envíes.</p>
-                    </form>
+
+                    <div class="nd-form-wrap nd-rv nd-d2">
+                        <form class="nd-form" data-whatsapp="573213026826" novalidate>
+                            <div class="nd-form-head">
+                                <h3>Cuéntanos tu proyecto</h3>
+                                <p>Te toma menos de un minuto. Al enviar se abre WhatsApp con tu mensaje listo.</p>
+                            </div>
+                            <div class="nd-form-row">
+                                <div class="nd-field">
+                                    <label for="nd-f-name">Nombre</label>
+                                    <input id="nd-f-name" name="nombre" required autocomplete="name" placeholder="¿Cómo te llamas?" aria-describedby="nd-f-name-err">
+                                    <small class="nd-err" id="nd-f-name-err">Escribe tu nombre.</small>
+                                </div>
+                                <div class="nd-field">
+                                    <label for="nd-f-contact">Correo o WhatsApp</label>
+                                    <input id="nd-f-contact" name="contacto" required autocomplete="email" placeholder="tu@correo.com o celular" aria-describedby="nd-f-contact-err">
+                                    <small class="nd-err" id="nd-f-contact-err">Escribe un correo o un número válido.</small>
+                                </div>
+                            </div>
+                            <fieldset class="nd-field nd-chips" aria-describedby="nd-f-svc-err">
+                                <legend>¿Qué necesitas?</legend>
+                                <div class="nd-chip-list">
+                                <label class="nd-chip"><input type="radio" name="nd-f-svc" value="Página web o app" required><span>Página web o app</span></label>
+                                <label class="nd-chip"><input type="radio" name="nd-f-svc" value="Agente de IA en WhatsApp"><span>Agente de IA en WhatsApp</span></label>
+                                <label class="nd-chip"><input type="radio" name="nd-f-svc" value="Automatización de procesos"><span>Automatización de procesos</span></label>
+                                <label class="nd-chip"><input type="radio" name="nd-f-svc" value="Marketing digital"><span>Marketing digital</span></label>
+                                <label class="nd-chip"><input type="radio" name="nd-f-svc" value="Varias de las anteriores"><span>Varias de las anteriores</span></label>
+                                </div>
+                                <small class="nd-err" id="nd-f-svc-err">Elige una opción.</small>
+                            </fieldset>
+                            <div class="nd-field">
+                                <label for="nd-f-msg">Cuéntanos brevemente <span class="nd-opt">(opcional)</span></label>
+                                <textarea id="nd-f-msg" name="mensaje" rows="3" maxlength="500" placeholder="Ej.: tengo un restaurante y quiero recibir pedidos por WhatsApp."></textarea>
+                            </div>
+                            <button class="nd-btn nd-btn-wa nd-submit" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.8 11.9 11.9 0 004.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Enviar por WhatsApp</button>
+                            <p class="nd-form-note">Tus datos solo se usan para armar el mensaje de WhatsApp; no se guardan en esta página.</p>
+                        </form>
+                        <div class="nd-sent" role="status" tabindex="-1" hidden>
+                            <span class="nd-sent-ic" aria-hidden="true">✓</span>
+                            <h3>¡Listo, <span class="nd-sent-name">gracias</span>!</h3>
+                            <p>Abrimos WhatsApp con tu mensaje. Solo tienes que tocar <b>Enviar</b> y te respondemos por ahí.</p>
+                            <div class="nd-sent-actions">
+                                <a class="nd-btn nd-btn-wa nd-sent-open" href="https://wa.me/573213026826?text=Hola%20BerryGood%20%F0%9F%91%8B%20Vi%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener">¿No se abrió? Abrir WhatsApp</a>
+                                <button class="nd-btn nd-btn-ghost nd-sent-again" type="button">Enviar otro mensaje</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>

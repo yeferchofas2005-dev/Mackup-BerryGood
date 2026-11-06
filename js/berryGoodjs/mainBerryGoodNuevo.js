@@ -37,26 +37,85 @@
 		});
 		menu.querySelectorAll('a').forEach((link) => listen(link, 'click', closeMenu));
 
+		/* Formulario de contacto: validación propia, mensaje a WhatsApp y pantalla de confirmación */
+		const sent = nd.querySelector('.nd-sent');
+		const value = (selector) => form.querySelector(selector)?.value.trim() ?? '';
+		const service = () => form.querySelector('[name="nd-f-svc"]:checked')?.value ?? '';
+		const checks = {
+			'nd-f-name': () => value('#nd-f-name').length >= 2,
+			'nd-f-contact': () => {
+				const contact = value('#nd-f-contact');
+				const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(contact);
+				const isPhone = contact.replace(/\D/g, '').length >= 7;
+				return isEmail || isPhone;
+			},
+			'nd-f-svc': () => Boolean(service()),
+		};
+
+		const fieldOf = (id) => (id === 'nd-f-svc' ? form.querySelector('.nd-chips') : form.querySelector(`#${id}`).closest('.nd-field'));
+		const validate = (id) => {
+			const ok = checks[id]();
+			const field = fieldOf(id);
+			field.classList.toggle('is-invalid', !ok);
+			(id === 'nd-f-svc' ? field : form.querySelector(`#${id}`)).setAttribute('aria-invalid', String(!ok));
+			return ok;
+		};
+
+		// Corrige el error en cuanto la persona arregla el campo
+		Object.keys(checks).forEach((id) => {
+			const target = id === 'nd-f-svc' ? fieldOf(id) : form.querySelector(`#${id}`);
+			listen(target, id === 'nd-f-svc' ? 'change' : 'input', () => {
+				if (fieldOf(id).classList.contains('is-invalid')) {
+					validate(id);
+				}
+			});
+			if (id !== 'nd-f-svc') {
+				listen(target, 'blur', () => target.value.trim() && validate(id));
+			}
+		});
+
+		let lastUrl = '';
 		listen(form, 'submit', (event) => {
 			event.preventDefault();
 
+			const invalid = Object.keys(checks).filter((id) => !validate(id));
+			if (invalid.length) {
+				const first = invalid[0] === 'nd-f-svc' ? form.querySelector('[name="nd-f-svc"]') : form.querySelector(`#${invalid[0]}`);
+				first.focus();
+				return;
+			}
+
 			// Arma el mensaje con los datos del formulario y abre WhatsApp
-			const value = (selector) => form.querySelector(selector)?.value.trim() ?? '';
 			const lines = [
 				'Hola BerryGood 👋 Vi su página web y me gustaría recibir más información sobre sus servicios.',
 				'',
 				`Nombre: ${value('#nd-f-name')}`,
 				`Contacto: ${value('#nd-f-contact')}`,
-				`Necesito: ${value('#nd-f-svc')}`,
+				`Necesito: ${service()}`,
 			];
 			if (value('#nd-f-msg')) {
 				lines.push(`Mensaje: ${value('#nd-f-msg')}`);
 			}
-			window.open(`https://wa.me/${form.dataset.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+			lastUrl = `https://wa.me/${form.dataset.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`;
+			window.open(lastUrl, '_blank', 'noopener');
 
-			form.classList.add('is-sent');
-			const rect = form.querySelector('button').getBoundingClientRect();
+			const rect = form.querySelector('.nd-submit').getBoundingClientRect();
 			confetti.burst(rect.left + rect.width / 2, rect.top, 90, 9);
+
+			// Pantalla de confirmación con opción de reabrir WhatsApp
+			sent.querySelector('.nd-sent-name').textContent = value('#nd-f-name').split(' ')[0] || 'gracias';
+			sent.querySelector('.nd-sent-open').href = lastUrl;
+			form.hidden = true;
+			sent.hidden = false;
+			sent.focus({ preventScroll: true });
+		});
+
+		listen(sent.querySelector('.nd-sent-again'), 'click', () => {
+			form.reset();
+			form.querySelectorAll('.is-invalid').forEach((field) => field.classList.remove('is-invalid'));
+			sent.hidden = true;
+			form.hidden = false;
+			form.querySelector('#nd-f-name').focus();
 		});
 
 		cleanups.push(closeMenu);
