@@ -10,9 +10,10 @@
 
 	function getSavedDesign() {
 		try {
-			return localStorage.getItem(designStorageKey) === 'nuevo' ? 'nuevo' : 'actual';
+			// El diseño nuevo es el predeterminado; el anterior solo si la persona lo eligió
+			return localStorage.getItem(designStorageKey) === 'actual' ? 'actual' : 'nuevo';
 		} catch {
-			return 'actual';
+			return 'nuevo';
 		}
 	}
 
@@ -48,7 +49,7 @@
 
 	function updateDesignButtons(design) {
 		const isNew = design === 'nuevo';
-		const label = isNew ? 'Volver al diseño actual' : 'Ver diseño nuevo';
+		const label = isNew ? 'Volver a la versión anterior' : 'Ver diseño nuevo';
 
 		document.querySelectorAll('.design-toggle').forEach((button) => {
 			button.setAttribute('aria-pressed', String(isNew));

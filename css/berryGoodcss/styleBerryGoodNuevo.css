@@ -2332,3 +2332,34 @@
 		animation: none !important;
 	}
 }
+
+/* ---------- Botón "Versión anterior" con el logo antiguo ----------
+   Solo el logo: el menú no tiene espacio para texto. El texto queda para
+   lectores de pantalla y el title muestra "Volver a la versión anterior". */
+.nd .design-toggle.nd-old-toggle {
+	width: 40px;
+	padding: 0;
+	border: 1.5px solid var(--line);
+	background: #fff;
+}
+
+.nd .nd-old-toggle img {
+	width: 28px;
+	height: 28px;
+	object-fit: contain;
+}
+
+.nd .nd-old-toggle span {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+.nd .design-toggle.nd-old-toggle:hover {
+	border-color: var(--fg);
+	background: #fff;
+	transform: rotate(-12deg) scale(1.06);
+}
