@@ -66,6 +66,13 @@
 	font-family: var(--font);
 	font-size: 17px;
 	line-height: 1.55;
+	/* Nitidez del texto: suavizado fino en Mac (sobre todo letras claras en fondo oscuro),
+	   sin negritas o cursivas falsas y con ajustes de interletrado de la fuente */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-synthesis: none;
+	font-kerning: normal;
+	text-rendering: optimizeLegibility;
 }
 
 /* ---------- Tokens · Día (opción E) ---------- */
